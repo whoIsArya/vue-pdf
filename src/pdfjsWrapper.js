@@ -8,7 +8,7 @@ export default function(PDFJS) {
 	}
 
 	function createLoadingTask(src, options) {
-
+		const CMAP_URL = 'https://unpkg.com/pdfjs-dist@2.0.489/cmaps/';
 		var source;
 		if ( typeof(src) === 'string' )
 			source = { url: src };
@@ -19,6 +19,8 @@ export default function(PDFJS) {
 		else
 			throw new TypeError('invalid src type');
 
+		source.cMapUrl = CMAP_URL
+        	source.cMapPacked = true
 		var loadingTask = PDFJS.getDocument(source);
 		loadingTask.__PDFDocumentLoadingTask = true; // since PDFDocumentLoadingTask is not public
 
