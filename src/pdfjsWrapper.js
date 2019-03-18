@@ -19,8 +19,8 @@ export default function(PDFJS) {
 		else
 			throw new TypeError('invalid src type');
 
-		source.cMapUrl = CMAP_URL
-        	source.cMapPacked = true
+		source.cMapUrl = CMAP_URL;
+		source.cMapPacked = true;
 		var loadingTask = PDFJS.getDocument(source);
 		loadingTask.__PDFDocumentLoadingTask = true; // since PDFDocumentLoadingTask is not public
 
